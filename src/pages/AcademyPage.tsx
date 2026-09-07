@@ -19,6 +19,9 @@ import { LinkButton } from '@/components/ui/LinkButton';
 import { Button } from '@/components/ui/Button';
 import { Accordion, SectionHeading } from '@/components/ui/Accordion';
 import { RegisterInterestForm } from '@/components/forms/RegisterInterestForm';
+import { PreWorkshopForm } from '@/components/forms/PreWorkshopForm';
+import { PostWorkshopForm } from '@/components/forms/PostWorkshopForm';
+import { Modal } from '@/components/ui/Modal';
 import { useRouter } from '@/context/RouterContext';
 import { programs, workshopFAQs, type Program } from '@/data/content';
 
@@ -136,10 +139,10 @@ function ProgramDetail({ program, onClose }: { program: Program; onClose: () => 
           {/* CTA */}
           <div className="mt-10 pt-8 border-t border-navy-100 dark:border-navy-700">
             {showForm ? (
-              <div className="max-w-lg">
+              <div className="max-w-2xl">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-heading font-bold text-lg text-navy-700 dark:text-white">
-                    Register Your Interest
+                    Workshop Registration
                   </h3>
                   <button
                     onClick={() => setShowForm(false)}
@@ -149,7 +152,7 @@ function ProgramDetail({ program, onClose }: { program: Program; onClose: () => 
                     <X className="h-5 w-5" />
                   </button>
                 </div>
-                <RegisterInterestForm programTitle={program.title} />
+                <RegisterInterestForm defaultWorkshopSlug={program.slug} />
               </div>
             ) : (
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
@@ -158,11 +161,11 @@ function ProgramDetail({ program, onClose }: { program: Program; onClose: () => 
                     Ready to join this program?
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                    Register your interest and we will send you enrollment details.
+                    Complete registration and payment to secure your seat.
                   </p>
                 </div>
                 <Button variant={colors.button} size="lg" onClick={() => setShowForm(true)}>
-                  Register Interest <ArrowRight className="h-5 w-5" />
+                  Register Now <ArrowRight className="h-5 w-5" />
                 </Button>
               </div>
             )}
@@ -176,6 +179,7 @@ function ProgramDetail({ program, onClose }: { program: Program; onClose: () => 
 export function AcademyPage() {
   const { params, navigate } = useRouter();
   const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
+  const [activeForm, setActiveForm] = useState<'pre' | 'post' | null>(null);
 
   useEffect(() => {
     if (params.program) {
@@ -294,9 +298,35 @@ export function AcademyPage() {
             <div className="mt-10">
               <Accordion items={workshopFAQs} />
             </div>
+
+            {/* Pre/Post workshop feedback forms */}
+            <div className="mt-14 pt-10 border-t border-navy-100 dark:border-navy-700 text-center">
+              <h3 className="font-heading font-bold text-xl text-navy-700 dark:text-white">
+                Attending or attended a workshop?
+              </h3>
+              <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
+                Fill out the pre-workshop form beforehand so we understand your goals, or the
+                post-workshop form afterward to share your feedback.
+              </p>
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button variant="outline" onClick={() => setActiveForm('pre')}>
+                  Pre-Workshop Form
+                </Button>
+                <Button variant="outline" onClick={() => setActiveForm('post')}>
+                  Post-Workshop Form
+                </Button>
+              </div>
+            </div>
           </div>
         </section>
       )}
+
+      <Modal open={activeForm === 'pre'} onClose={() => setActiveForm(null)} title="Pre-Workshop Form">
+        <PreWorkshopForm />
+      </Modal>
+      <Modal open={activeForm === 'post'} onClose={() => setActiveForm(null)} title="Post-Workshop Form">
+        <PostWorkshopForm />
+      </Modal>
     </>
   );
 }

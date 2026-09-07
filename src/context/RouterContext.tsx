@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, type ReactNode } from 'react';
 import { useState, useCallback } from 'react';
 
-export type RouteName = 'home' | 'academy' | 'community' | 'resources' | 'contact' | 'team';
+export type RouteName = 'home' | 'academy' | 'community' | 'resources' | 'contact' | 'team' | 'admin';
 
 interface RouterContextValue {
   route: RouteName;
