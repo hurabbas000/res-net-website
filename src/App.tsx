@@ -10,6 +10,7 @@ import { ResourcesPage } from '@/pages/ResourcesPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { TeamPage } from '@/pages/TeamPage';
 import { AdminPage } from '@/pages/AdminPage';
+import { EventsPage } from '@/pages/EventsPage';
 
 function PageRouter() {
   const { route } = useRouter();
@@ -29,6 +30,8 @@ function PageRouter() {
       return <TeamPage />;
     case 'admin':
       return <AdminPage />;
+    case 'events':
+      return <EventsPage />;
     default:
       return <HomePage />;
   }

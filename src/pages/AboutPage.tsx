@@ -129,9 +129,8 @@ export function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                To empower medical students through practical research education, mentorship, and
-                collaboration. We turn curiosity into capability, and capability into published
-                science.
+                Making medical research accessible, practical, and meaningful.
+
               </p>
             </Card>
             <Card className="p-8">

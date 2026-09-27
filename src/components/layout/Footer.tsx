@@ -6,7 +6,7 @@ const footerNav: { name: RouteName; label: string }[] = [
   { name: 'home', label: 'Home' },
   { name: 'academy', label: 'Workshops' },
   { name: 'community', label: 'Community' },
-  { name: 'resources', label: 'Resources' },
+  { name: 'events', label: 'Events' },
   { name: 'contact', label: 'Contact' },
 ];
 
@@ -49,18 +49,18 @@ export function Footer() {
             <h3 className="font-heading font-semibold text-white mb-4">Contact</h3>
             <ul className="space-y-2.5 text-sm text-gray-400">
               <li>
-                <a href="mailto:hello@resnet.org" className="hover:text-brand-400 transition-colors flex items-center gap-2">
-                  <Mail className="h-4 w-4" /> hello@resnet.org
+                <a href="mailto:contactresnet1@gmail.com" className="hover:text-brand-400 transition-colors flex items-center gap-2">
+                  <Mail className="h-4 w-4" /> contactresnet1@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/923000000000"
+                  href="https://wa.me/923323205579"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-brand-400 transition-colors flex items-center gap-2"
                 >
-                  <MessageCircle className="h-4 w-4" /> +92 300 0000000
+                  <MessageCircle className="h-4 w-4" />+92 332 3205579
                 </a>
               </li>
             </ul>
@@ -70,9 +70,9 @@ export function Footer() {
             <h3 className="font-heading font-semibold text-white mb-4">Follow Us</h3>
             <div className="flex gap-3">
               {[
-                { Icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { Icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-                { Icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
+                { Icon: Linkedin, href: 'https://www.linkedin.com/company/res-net1/', label: 'LinkedIn' },
+                { Icon: Instagram, href: 'https://www.instagram.com/researchnetwork1/', label: 'Instagram' },
+                { Icon: Facebook, href: 'https://www.facebook.com/share/199XDN173G/', label: 'Facebook' },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}

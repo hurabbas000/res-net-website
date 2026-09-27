@@ -8,11 +8,13 @@ import { LinkButton } from '@/components/ui/LinkButton';
 import { Modal } from '@/components/ui/Modal';
 import { LoginForm } from '@/components/forms/LoginForm';
 
+// 'resources' is intentionally left out — the page still exists and is
+// reachable directly, it's just not linked from the nav for now.
 const baseNavItems: { name: RouteName; label: string }[] = [
   { name: 'home', label: 'Home' },
   { name: 'academy', label: 'Workshops' },
   { name: 'community', label: 'Community' },
-  { name: 'resources', label: 'Resources' },
+  { name: 'events', label: 'Events' },
   { name: 'team', label: 'Team' },
   { name: 'contact', label: 'Contact' },
 ];

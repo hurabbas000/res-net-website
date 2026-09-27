@@ -1,12 +1,11 @@
 import {
-  BookOpen,
   Megaphone,
   Calendar,
   MessageCircle,
   Users,
   ArrowRight,
   Globe,
-  Video,
+  HeartHandshake,
 } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { Card } from '@/components/ui/Card';
@@ -21,14 +20,6 @@ const communityLinks = [
     color: 'bg-brand-600',
     cta: 'Join WhatsApp',
   },
-  {
-    name: 'Discord Server',
-    description: 'Our Discord server has channels for each program, journal club discussions, and study groups.',
-    href: 'https://discord.gg/resnet',
-    icon: Users,
-    color: 'bg-navy-700',
-    cta: 'Join Discord',
-  },
 ];
 
 export function CommunityPage() {
@@ -36,7 +27,7 @@ export function CommunityPage() {
     <>
       <SEO
         title="Community — Research Network (Res.Net)"
-        description="Join the Res.Net community — journal club, campus ambassador program, monthly meetings, and our WhatsApp and Discord groups."
+        description="Join the Res.Net community — mentorship program, campus ambassador program, monthly meetings, and our WhatsApp group."
       />
 
       {/* Hero */}
@@ -50,33 +41,67 @@ export function CommunityPage() {
           </h1>
           <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
             Join a growing community of medical students who learn, discuss, and collaborate on
-            research. From journal clubs to ambassador programs — there is a place for you here.
+            research. From mentorship to ambassador programs — there is a place for you here.
           </p>
         </div>
       </section>
 
-      {/* Journal Club */}
+      {/* Mentorship Program */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="h-12 w-12 rounded-xl bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center mb-4">
-                <BookOpen className="h-6 w-6 text-brand-500" />
+                <HeartHandshake className="h-6 w-6 text-brand-500" />
               </div>
               <h2 className="font-heading font-bold text-3xl text-navy-700 dark:text-white">
-                Journal Club
+                Mentorship Program
               </h2>
               <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Our monthly Journal Club is where we dissect a landmark paper together. One paper,
-                one hour, one lively discussion. A facilitator walks through the methodology, results,
-                and implications — then the floor opens for questions and debate.
+                Become a Res.Net Mentor and help guide the next generation of medical student
+                researchers. Mentors share their research experience, support mentees throughout
+                their research journey, and help them develop the skills and confidence to learn,
+                research, and publish.
               </p>
-              <ul className="mt-6 space-y-3">
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                Applicants should have experience in conducting and publishing research, strong
+                communication skills, and a willingness to guide and support others. This is an
+                opportunity to strengthen your mentoring and leadership skills, give back to the
+                research community, and make a meaningful impact on aspiring researchers.
+              </p>
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                Applications are currently open.
+              </p>
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                Mail us your CV at{' '}
+                <a href="mailto:contactresnet1@gmail.com" className="text-brand-500 hover:text-brand-600 underline">
+                  contactresnet1@gmail.com
+                </a>
+              </p>
+              <div className="mt-6">
+                <a
+                  href="mailto:contactresnet1@gmail.com?subject=Mentorship Program — CV Submission"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl font-heading font-semibold bg-accent-500 text-white hover:bg-accent-600 px-6 py-3 transition-all"
+                >
+                  Send Your CV <ArrowRight className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+            <Card className="p-8 bg-gradient-to-br from-navy-50 to-brand-50 dark:from-navy-800 dark:to-navy-700">
+              <div className="flex items-center gap-3 mb-4">
+                <HeartHandshake className="h-5 w-5 text-brand-500" />
+                <span className="font-heading font-semibold text-navy-700 dark:text-white">
+                  Mentor Benefits
+                </span>
+              </div>
+              <ul className="space-y-3">
                 {[
-                  'Critical appraisal practice with real papers',
-                  'Live discussion with students across institutions',
-                  'Facilitated by experienced researchers',
-                  ' recordings available for members',
+                  'Paid mentorship position with Res.Net',
+                  'Certificate & letter of appreciation recognizing your contribution',
+                  'Build your teaching and mentoring experience',
+                  'Priority access to research collaboration opportunities',
+                  'Expand your professional network within the Res.Net community',
+                  'Opportunity to lead and contribute to research education initiatives',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-300">
                     <span className="shrink-0 h-5 w-5 rounded-full bg-brand-100 dark:bg-brand-900/40 flex items-center justify-center mt-0.5">
@@ -86,28 +111,6 @@ export function CommunityPage() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <Card className="p-8 bg-gradient-to-br from-navy-50 to-brand-50 dark:from-navy-800 dark:to-navy-700">
-              <div className="flex items-center gap-3 mb-4">
-                <Calendar className="h-5 w-5 text-brand-500" />
-                <span className="font-heading font-semibold text-navy-700 dark:text-white">
-                  Next Session
-                </span>
-              </div>
-              <h3 className="font-heading font-bold text-xl text-navy-700 dark:text-white">
-                "Efficacy and Safety of COVID-19 Vaccines: A Living Systematic Review"
-              </h3>
-              <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
-                Published in The BMJ · Discussion led by Dr. Sarah Ahmed
-              </p>
-              <div className="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-                <span className="flex items-center gap-1.5">
-                  <Video className="h-4 w-4" /> Online (Zoom)
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="h-4 w-4" /> Last Friday of every month
-                </span>
-              </div>
             </Card>
           </div>
         </div>
@@ -126,11 +129,12 @@ export function CommunityPage() {
               </div>
               <ul className="space-y-3">
                 {[
-                  'Free access to one Workshops program per semester',
-                  'Certificate of leadership and community building',
+                  'Free access to Res.Net workshops and programs',
+                  'Certificate & letter of appreciation recognizing your contribution',
                   'Direct mentorship from the Res.Net team',
-                  'Priority for research collaboration opportunities',
+                  'Priority access to research collaboration opportunities',
                   'Build your network across medical institutions',
+                  'Develop leadership experience as a Res.Net representative on your campus',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-300">
                     <span className="shrink-0 h-5 w-5 rounded-full bg-brand-100 dark:bg-brand-900/40 flex items-center justify-center mt-0.5">
@@ -149,17 +153,22 @@ export function CommunityPage() {
                 Campus Ambassador Program
               </h2>
               <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Become a Res.Net ambassador at your institution. Ambassadors are the face of Res.Net
-                on their campus — they organize local study groups, share resources, and connect
-                fellow students to our programs and community.
+                Become a Res.Net Ambassador at your institution and help build a stronger research community on your campus. Ambassadors represent Res.Net locally, organize study groups, share research resources, and connect fellow students with our programs and community.
+                It's an opportunity to develop leadership and communication skills, strengthen your CV, and help your peers take their first steps in research. 
+
               </p>
-              <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed">
-                It is a leadership opportunity that builds your CV while helping your peers discover
-                research. We accept ambassadors twice a year, in spring and fall.
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                Applications are currently open.
+              </p>
+              <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                Mail us your CV at{' '}
+                <a href="mailto:contactresnet1@gmail.com" className="text-brand-500 hover:text-brand-600 underline">
+                  contactresnet1@gmail.com
+                </a>
               </p>
               <div className="mt-6">
                 <a
-                  href="mailto:hello@resnet.org?subject=Campus Ambassador Application"
+                  href="mailto:contactresnet1@gmail.com?subject=Campus Ambassador Application"
                   className="inline-flex items-center justify-center gap-2 rounded-xl font-heading font-semibold bg-accent-500 text-white hover:bg-accent-600 px-6 py-3 transition-all"
                 >
                   Apply to Be an Ambassador <ArrowRight className="h-5 w-5" />
@@ -170,47 +179,6 @@ export function CommunityPage() {
         </div>
       </section>
 
-      {/* Monthly Meetings */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Monthly Meetings"
-            title="Connect Every Month"
-            description="Regular community gatherings to learn, share, and grow together."
-          />
-          <div className="mt-10 grid sm:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Calendar,
-                title: 'First Friday',
-                desc: 'Journal Club — critical appraisal of a landmark paper.',
-              },
-              {
-                icon: Users,
-                title: 'Second Saturday',
-                desc: 'Community Meetup — progress sharing, peer feedback, and networking.',
-              },
-              {
-                icon: Globe,
-                title: 'Last Thursday',
-                desc: 'Guest Speaker — researchers and clinicians share their journey.',
-              },
-            ].map((meeting, i) => (
-              <Card key={i} className="p-6 text-center">
-                <div className="h-12 w-12 rounded-xl bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center mx-auto mb-4">
-                  <meeting.icon className="h-6 w-6 text-brand-500" />
-                </div>
-                <h3 className="font-heading font-semibold text-navy-700 dark:text-white mb-2">
-                  {meeting.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {meeting.desc}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Join Links */}
       <section className="py-20 bg-navy-50/50 dark:bg-navy-800/30">
@@ -218,9 +186,9 @@ export function CommunityPage() {
           <SectionHeading
             eyebrow="Join Now"
             title="Get Connected"
-            description="Pick your preferred platform and join the conversation today."
+            description="Join the conversation today."
           />
-          <div className="mt-10 grid sm:grid-cols-2 gap-6">
+          <div className="mt-10 max-w-md mx-auto">
             {communityLinks.map((link) => (
               <Card key={link.name} hover className="p-8 text-center">
                 <div className={`h-14 w-14 rounded-2xl ${link.color} flex items-center justify-center mx-auto mb-4`}>

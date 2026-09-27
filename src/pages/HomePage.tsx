@@ -99,7 +99,7 @@ export function HomePage() {
                 Learn. Research. Publish.
               </span>
               <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-in">
-                Master medical research through structured programs, expert mentorship, and hands-on projects.
+                Turn your curiosity into research that matters.
               </p>
             </div>
 
@@ -213,15 +213,26 @@ export function HomePage() {
             <h2 className="font-heading font-bold text-3xl lg:text-4xl text-navy-700 dark:text-white mt-4">
               Master Medical Research
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Explore structured programs designed to develop practical research skills through expert mentorship and real research experience.
-            </p>
+           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Programs to help you learn research, gain hands-on experience, and turn ideas into real research.
+            <br />
+            Research Foundations Workshop: From your first research question to your first publication.
+            <br />
+            AI in Medical Research: Use AI to master literature reviews, writing, and data analysis.
+            <br />
+            Original Research Bootcamp: Take your research idea from a question to a published original research.
+            <br />
+            Systematic Review & Meta-analysis Masterclass: Learn to conduct rigorous evidence synthesis from start to finish.
+          </p>
           </div>
 
           <div className="border-t border-gray-200 dark:border-gray-700">
             {programs.map((program, i) => (
               <React.Fragment key={program.slug}>
-                <div className="group py-8 px-4 hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors duration-200 cursor-pointer">
+                <div
+                  className="group py-8 px-4 hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors duration-200 cursor-pointer"
+                  onClick={() => navigate('academy', { program: program.slug })}
+                >
                   <div className="flex items-start justify-between gap-6">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
@@ -251,6 +262,26 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Upcoming Events Teaser */}
+      <section className="py-20 bg-navy-50/50 dark:bg-navy-800/30 animate-slide-up">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-xs font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-widest">
+            Events
+          </span>
+          <h2 className="font-heading font-bold text-3xl lg:text-4xl text-navy-700 dark:text-white mt-4">
+            Workshops, Info Sessions &amp; Meetups
+          </h2>
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            From cohort kickoffs to our monthly journal club, see what's happening next at Res.Net.
+          </p>
+          <div className="mt-8">
+            <LinkButton to="events" variant="accent" size="lg">
+              View Upcoming Events <ArrowRight className="h-5 w-5" />
+            </LinkButton>
+          </div>
+        </div>
+      </section>
+
       {/* Team Preview */}
       <section className="py-20 animate-slide-up">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -265,31 +296,7 @@ export function HomePage() {
               Driven by a shared vision to make medical research more accessible, practical, and impactful.
             </p>
           </div>
-          <div className="mt-14 grid md:grid-cols-1 gap-8">
-            {[
-              { name: 'Hur Abbas', role: 'Founder', details: 'Final Year MBBS · Dow Medical College', image: '/CO_HUR.png' }
-            ].map((member, i) => (
-              <Card key={i} className="p-8 text-center animate-fade-up transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="h-32 w-32 rounded-full bg-gradient-to-br from-brand-100 to-brand-200 dark:from-brand-900/40 dark:to-brand-800/40 mx-auto flex items-center justify-center mb-6 border-2 border-brand-200 dark:border-brand-700 shadow-lg overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <span className="text-sm font-heading font-semibold tracking-wider uppercase text-brand-500">
-                  {member.role}
-                </span>
-                <h3 className="font-heading font-bold text-xl text-navy-700 dark:text-white mt-2">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  {member.details}
-                </p>
-              </Card>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
+          <div className="text-center">
             <LinkButton to="team" variant="primary" size="lg">
               View Our Team <ArrowRight className="h-5 w-5" />
             </LinkButton>
@@ -307,9 +314,6 @@ export function HomePage() {
             <h2 className="font-heading font-bold text-3xl lg:text-4xl text-navy-700 dark:text-white mt-4">
               Students Who Turned Curiosity Into Publications
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Real stories from medical students who transformed curiosity into research experience and publication success.
-            </p>
           </div>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6">
             {testimonials.map((t, i) => (

@@ -133,32 +133,18 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    name: 'Dr. Ayesha Khan',
-    role: 'House Officer, Jinnah Hospital, Karachi',
+    name: ' Jari Haider',
+    role: '1st Year MBBS, Sindh Medical College',
     quote:
-      'The Original Research Bootcamp took me from zero to published. My first paper is now in a peer-reviewed journal. The mentorship was the difference — I never felt lost.',
-    initials: 'AK',
+      "The session was a great starting point for me to learn about research from the basics. It helped me understand the research process and improve my approach to academic writing. I’m looking forward to more sessions from Res.Net in the future.",
+    initials: 'JH',
   },
   {
-    name: 'Hamza Sheikh',
-    role: 'Final Year MBBS, Aga Khan University',
+    name: 'Wajahat Abbas',
+    role: '1st Year MBBS, Karachi Medical & Dental College',
     quote:
-      'I had ideas but no idea how to turn them into a study. The Research Foundations Workshop gave me the framework. I now have a systematic review registered on PROSPERO.',
-    initials: 'HS',
-  },
-  {
-    name: 'Fatima Raza',
-    role: 'Pharmacy Student, University of Punjab',
-    quote:
-      'The community here is incredible. The journal club introduced me to students across disciplines. We collaborated on a paper that is now under review.',
-    initials: 'FR',
-  },
-  {
-    name: 'Dr. Bilal Ahmed',
-    role: 'Resident, Internal Medicine, Lahore',
-    quote:
-      'The Systematic Review Masterclass was rigorous and practical. I finished with a registered protocol and a clear timeline. Worth every minute.',
-    initials: 'BA',
+      "It was a great experience attending the workshop. I learned a lot about the purpose of research and the basics of Letter to the Editor. It was very helpful, and I look forward to taking future workshops like this.",
+    initials: 'WA',
   },
 ];
 
@@ -287,4 +273,57 @@ export const roadmapSteps: RoadmapStep[] = [
   { step: '04', title: 'Original Research Bootcamp', description: 'Conduct your own study with mentorship end-to-end.', icon: 'Rocket' },
   { step: '05', title: 'Systematic Review & Meta-analysis', description: 'Synthesize evidence at the highest methodological standard.', icon: 'Layers' },
   { step: '06', title: 'Publication', description: 'Submit your manuscript and respond to reviewers with confidence.', icon: 'FileText' },
+];
+
+export interface EventItem {
+  title: string;
+  date: string;
+  time: string;
+  format: 'Online' | 'In-Person';
+  location?: string;
+  description: string;
+  icon: string;
+  recurring?: boolean;
+}
+
+// Placeholder events — edit dates/details to match what's actually scheduled.
+export const events: EventItem[] = [
+  {
+    title: 'Research Foundations Workshop — New Cohort Kickoff',
+    date: 'Oct 18, 2026',
+    time: '6:00 PM PKT',
+    format: 'Online',
+    description:
+      'Join the opening session of our next Research Foundations cohort and meet your fellow researchers before the program begins.',
+    icon: 'Compass',
+  },
+  {
+    title: 'AI in Medical Research — Live Info Session',
+    date: 'Oct 25, 2026',
+    time: '7:00 PM PKT',
+    format: 'Online',
+    description:
+      'A free live walkthrough of the AI in Medical Research curriculum, with time for Q&A before registration opens.',
+    icon: 'BrainCircuit',
+  },
+  {
+    title: 'Monthly Journal Club',
+    date: 'Every Last Friday',
+    time: '8:00 PM PKT',
+    format: 'Online',
+    description:
+      'A facilitator walks through a landmark paper for an hour of critical appraisal and open discussion — open to all Res.Net members.',
+    icon: 'BookOpen',
+    recurring: true,
+  },
+  {
+    title: 'Community Meetup',
+    date: 'Every Second Saturday',
+    time: '5:00 PM PKT',
+    format: 'Online',
+    description:
+      'An informal monthly gathering to share progress, get peer feedback on your research, and network with other students.',
+    icon: 'Users',
+    recurring: true,
+  },
 ];
