@@ -26,6 +26,11 @@ function EventCard({ event }: { event: EventItem }) {
                 Recurring
               </span>
             )}
+            {event.status && (
+              <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 uppercase tracking-wider">
+                {event.status}
+              </span>
+            )}
             <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-navy-100 dark:bg-navy-700 text-navy-600 dark:text-gray-200 uppercase tracking-wider">
               {event.format}
             </span>
@@ -94,10 +99,10 @@ export function EventsPage() {
             Never miss an event
           </h2>
           <p className="mt-3 text-gray-600 dark:text-gray-300">
-            Join our WhatsApp group for reminders before every session.
+            Join our WhatsApp community group for reminders before every session.
           </p>
           <a
-            href="https://wa.me/923000000000"
+            href="https://chat.whatsapp.com/HJIzKVk4CkY2Q2XcXAoAYN"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl font-heading font-semibold bg-brand-600 text-white hover:bg-brand-700 px-6 py-3 transition-all"

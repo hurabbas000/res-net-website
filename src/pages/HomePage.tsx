@@ -79,17 +79,17 @@ export function HomePage() {
             <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
             <div className="max-w-xl">
-              <div className="flex items-center gap-5 mb-5 animate-fade-in">
+              <div className="flex items-center gap-3 sm:gap-5 mb-5 animate-fade-in">
                 <img 
                   src={theme === 'dark' ? '/logo-icon-white.svg' : '/logo-icon-navy.svg'} 
                   alt="Res.Net" 
-                  className="h-28 w-28 lg:h-32 lg:w-32"
+                  className="h-16 w-16 sm:h-24 sm:w-24 lg:h-32 lg:w-32 shrink-0"
                 />
                 <div className="flex flex-col">
-                  <span className="font-heading font-bold text-7xl lg:text-8xl text-navy-700 dark:text-white tracking-tight">
+                  <span className="font-heading font-bold text-5xl sm:text-7xl lg:text-8xl text-navy-700 dark:text-white tracking-tight leading-none">
                     Res<span className="text-brand-600">.Net</span>
                   </span>
-                  <span className="font-heading font-semibold text-2xl lg:text-3xl text-brand-600 dark:text-brand-400 tracking-widest uppercase mt-1">
+                  <span className="font-heading font-semibold text-xs sm:text-xl lg:text-3xl text-brand-600 dark:text-brand-400 tracking-[0.18em] sm:tracking-widest uppercase mt-2 whitespace-nowrap">
                     Research Network
                   </span>
                 </div>
@@ -207,23 +207,9 @@ export function HomePage() {
       <section className="py-20 bg-white dark:bg-navy-900 animate-slide-up">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-xs font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-widest">
+            <span className="text-3xl lg:text-4xl font-heading font-bold text-brand-600 dark:text-brand-400 uppercase tracking-widest">
               Research Programs
             </span>
-            <h2 className="font-heading font-bold text-3xl lg:text-4xl text-navy-700 dark:text-white mt-4">
-              Master Medical Research
-            </h2>
-           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Programs to help you learn research, gain hands-on experience, and turn ideas into real research.
-            <br />
-            Research Foundations Workshop: From your first research question to your first publication.
-            <br />
-            AI in Medical Research: Use AI to master literature reviews, writing, and data analysis.
-            <br />
-            Original Research Bootcamp: Take your research idea from a question to a published original research.
-            <br />
-            Systematic Review & Meta-analysis Masterclass: Learn to conduct rigorous evidence synthesis from start to finish.
-          </p>
           </div>
 
           <div className="border-t border-gray-200 dark:border-gray-700">

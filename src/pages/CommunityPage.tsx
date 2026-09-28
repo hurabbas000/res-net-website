@@ -14,8 +14,8 @@ import { SectionHeading } from '@/components/ui/Accordion';
 const communityLinks = [
   {
     name: 'WhatsApp Group',
-    description: 'Join our WhatsApp community for daily discussions, resource sharing, and quick questions.',
-    href: 'https://wa.me/923000000000',
+    description: 'Join our WhatsApp community group for daily discussions, resource sharing, and quick questions.',
+    href: 'https://chat.whatsapp.com/HJIzKVk4CkY2Q2XcXAoAYN',
     icon: MessageCircle,
     color: 'bg-brand-600',
     cta: 'Join WhatsApp',
@@ -129,7 +129,7 @@ export function CommunityPage() {
               </div>
               <ul className="space-y-3">
                 {[
-                  'Free access to Res.Net workshops and programs',
+                  'Exclusive Discounts on RES.NET Workshops & Programs',
                   'Certificate & letter of appreciation recognizing your contribution',
                   'Direct mentorship from the Res.Net team',
                   'Priority access to research collaboration opportunities',
@@ -171,7 +171,7 @@ export function CommunityPage() {
                   href="mailto:contactresnet1@gmail.com?subject=Campus Ambassador Application"
                   className="inline-flex items-center justify-center gap-2 rounded-xl font-heading font-semibold bg-accent-500 text-white hover:bg-accent-600 px-6 py-3 transition-all"
                 >
-                  Apply to Be an Ambassador <ArrowRight className="h-5 w-5" />
+                  Send Your CV <ArrowRight className="h-5 w-5" />
                 </a>
               </div>
             </div>

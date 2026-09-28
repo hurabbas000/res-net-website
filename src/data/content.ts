@@ -284,46 +284,48 @@ export interface EventItem {
   description: string;
   icon: string;
   recurring?: boolean;
+  status?: string;
 }
 
-// Placeholder events — edit dates/details to match what's actually scheduled.
 export const events: EventItem[] = [
   {
-    title: 'Research Foundations Workshop — New Cohort Kickoff',
-    date: 'Oct 18, 2026',
-    time: '6:00 PM PKT',
+    title: 'Research Foundation Workshop',
+    date: 'October 4, 2026',
+    time: '8:00–10:00 PM PKT',
     format: 'Online',
     description:
-      'Join the opening session of our next Research Foundations cohort and meet your fellow researchers before the program begins.',
+      'Build your research foundation, gain practical insights, and take your first steps towards medical research and publication.',
     icon: 'Compass',
+    status: 'Coming Soon',
   },
   {
     title: 'AI in Medical Research — Live Info Session',
-    date: 'Oct 25, 2026',
-    time: '7:00 PM PKT',
+    date: 'Coming Soon',
+    time: 'Coming Soon',
     format: 'Online',
     description:
-      'A free live walkthrough of the AI in Medical Research curriculum, with time for Q&A before registration opens.',
+      'Explore how AI can support different stages of medical research, from finding ideas to literature review, writing, and publication.',
     icon: 'BrainCircuit',
+    status: 'Coming Soon',
   },
   {
     title: 'Monthly Journal Club',
-    date: 'Every Last Friday',
-    time: '8:00 PM PKT',
+    date: 'Coming Soon',
+    time: 'Coming Soon',
     format: 'Online',
     description:
-      'A facilitator walks through a landmark paper for an hour of critical appraisal and open discussion — open to all Res.Net members.',
+      'Join fellow researchers for guided discussions, critical appraisal, and open conversation about landmark, high-impact research papers.',
     icon: 'BookOpen',
-    recurring: true,
+    status: 'Coming Soon',
   },
   {
-    title: 'Community Meetup',
-    date: 'Every Second Saturday',
-    time: '5:00 PM PKT',
+    title: 'Research Fellowship Pathway',
+    date: 'Coming Soon',
+    time: 'Coming Soon',
     format: 'Online',
     description:
-      'An informal monthly gathering to share progress, get peer feedback on your research, and network with other students.',
+      'Explore the journey towards securing research fellowships, from building your research profile and gaining experience to identifying opportunities and preparing a strong application.',
     icon: 'Users',
-    recurring: true,
+    status: 'Coming Soon',
   },
 ];

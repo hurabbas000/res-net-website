@@ -90,8 +90,8 @@ export function Navbar() {
               <button
                 onClick={() => (user ? handleSignOut() : setLoginOpen(true))}
                 className="hidden lg:flex p-2.5 rounded-lg text-navy-600 dark:text-gray-300 hover:bg-navy-50 dark:hover:bg-navy-800 transition-colors"
-                aria-label={user ? 'Log out' : 'Log in'}
-                title={user ? `Log out (${user.email})` : 'Log in'}
+                aria-label={user ? 'Log out' : 'Log in as Admin'}
+                title={user ? `Log out (${user.email})` : 'Log in as Admin'}
               >
                 {user ? <LogOut className="h-5 w-5" /> : <LogIn className="h-5 w-5" />}
               </button>
@@ -139,7 +139,7 @@ export function Navbar() {
                 }}
                 className="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-navy-50 dark:hover:bg-navy-800 transition-colors"
               >
-                {user ? `Log out (${user.email})` : 'Log in'}
+                {user ? `Log out (${user.email})` : 'Log in as Admin'}
               </button>
               <div className="pt-2">
                 <LinkButton to="academy" variant="accent" size="md" className="w-full">
@@ -151,7 +151,7 @@ export function Navbar() {
         )}
       </header>
 
-      <Modal open={loginOpen} onClose={() => setLoginOpen(false)} title="Log In">
+      <Modal open={loginOpen} onClose={() => setLoginOpen(false)} title="Log In as Admin">
         <LoginForm onSuccess={() => setLoginOpen(false)} />
       </Modal>
     </>

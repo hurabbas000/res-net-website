@@ -14,7 +14,7 @@ const contactMethods = [
   {
     icon: MessageCircle,
     label: 'WhatsApp',
-    value: '+92 312 2947426',
+    value: '+92 332 3205579',
     href: 'https://wa.me/923122947426',
     color: 'bg-brand-600',
   },
@@ -120,21 +120,6 @@ export function ContactPage() {
                 </p>
               </Card>
 
-              {/* Map placeholder */}
-              <Card className="overflow-hidden">
-                <div className="aspect-video bg-gradient-to-br from-navy-100 to-brand-100 dark:from-navy-800 dark:to-navy-700 flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-grid opacity-40" />
-                  <div className="relative text-center">
-                    <MapPin className="h-10 w-10 text-navy-400 mx-auto mb-2" />
-                    <p className="text-sm text-navy-500 dark:text-gray-400 font-medium">
-                      Map placeholder
-                    </p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
-                      Karachi, Pakistan
-                    </p>
-                  </div>
-                </div>
-              </Card>
             </div>
           </div>
         </div>
