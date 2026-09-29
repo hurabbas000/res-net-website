@@ -93,10 +93,6 @@ export function Footer() {
           <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} Research Network (Res.Net). All rights reserved.
           </p>
-          <p className="text-sm text-gray-400 flex items-center gap-1.5">
-            Built with <Heart className="h-4 w-4 text-accent-500 fill-current" /> for medical
-            researchers
-          </p>
         </div>
       </div>
     </footer>
