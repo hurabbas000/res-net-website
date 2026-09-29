@@ -120,7 +120,7 @@ export function CommunityPage() {
       <section className="py-20 bg-navy-50/50 dark:bg-navy-800/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <Card className="p-8 bg-gradient-to-br from-navy-50 to-brand-50 dark:from-navy-800 dark:to-navy-700 lg:order-2">
+            <Card className="order-2 p-8 bg-gradient-to-br from-navy-50 to-brand-50 dark:from-navy-800 dark:to-navy-700 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
                 <Megaphone className="h-5 w-5 text-brand-500" />
                 <span className="font-heading font-semibold text-navy-700 dark:text-white">
@@ -145,7 +145,7 @@ export function CommunityPage() {
                 ))}
               </ul>
             </Card>
-            <div className="lg:order-1">
+            <div className="order-1 lg:order-1">
               <div className="h-12 w-12 rounded-xl bg-navy-100 dark:bg-navy-700 flex items-center justify-center mb-4">
                 <Megaphone className="h-6 w-6 text-navy-600 dark:text-brand-400" />
               </div>
