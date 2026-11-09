@@ -25,7 +25,11 @@ export function LoginForm({ onSuccess }: { onSuccess?: () => void }) {
     setLoading(false);
 
     if (signInError) {
-      setError('Invalid email or password.');
+      setError(
+        signInError === 'This account does not have administrator access.'
+          ? signInError
+          : 'Unable to sign in. Check your credentials and try again.',
+      );
       return;
     }
 

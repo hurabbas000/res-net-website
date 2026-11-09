@@ -12,6 +12,7 @@ import { TeamPage } from '@/pages/TeamPage';
 import { AdminPage } from '@/pages/AdminPage';
 import { EventsPage } from '@/pages/EventsPage';
 import { CitationPage } from '@/pages/CitationPage';
+import { AdminLoginPage } from '@/pages/AdminLoginPage';
 
 function PageRouter() {
   const { route } = useRouter();
@@ -31,6 +32,8 @@ function PageRouter() {
       return <TeamPage />;
     case 'admin':
       return <AdminPage />;
+    case 'admin-login':
+      return <AdminLoginPage />;
     case 'events':
       return <EventsPage />;
     case 'citation': 

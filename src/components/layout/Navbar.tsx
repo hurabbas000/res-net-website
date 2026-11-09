@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, LogIn, LogOut } from 'lucide-react';
+import { Menu, X, Moon, Sun, LogOut } from 'lucide-react';
 import { useRouter, type RouteName } from '@/context/RouterContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useAuth } from '@/context/AuthContext';
 import { Logo } from '@/components/ui/Logo';
 import { LinkButton } from '@/components/ui/LinkButton';
-import { Modal } from '@/components/ui/Modal';
-import { LoginForm } from '@/components/forms/LoginForm';
 
 // 'resources' is intentionally left out — the page still exists and is
 // reachable directly, it's just not linked from the nav for now.
@@ -26,7 +24,6 @@ export function Navbar() {
   const { user, role, signOut } = useAuth();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -35,8 +32,10 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navItems =
-    role === 'admin' ? [...baseNavItems, { name: 'admin' as RouteName, label: 'Admin' }] : baseNavItems;
+  const isAdmin = Boolean(user && role === 'admin');
+  const navItems = isAdmin
+    ? [...baseNavItems, { name: 'admin' as RouteName, label: 'Admin' }]
+    : baseNavItems;
 
   const handleNav = (to: RouteName) => {
     navigate(to);
@@ -87,15 +86,16 @@ export function Navbar() {
                 {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
               </button>
 
-              {/* Login / Logout — desktop */}
-              <button
-                onClick={() => (user ? handleSignOut() : setLoginOpen(true))}
-                className="hidden lg:flex p-2.5 rounded-lg text-navy-600 dark:text-gray-300 hover:bg-navy-50 dark:hover:bg-navy-800 transition-colors"
-                aria-label={user ? 'Log out' : 'Log in as Admin'}
-                title={user ? `Log out (${user.email})` : 'Log in as Admin'}
-              >
-                {user ? <LogOut className="h-5 w-5" /> : <LogIn className="h-5 w-5" />}
-              </button>
+              {user && (
+                <button
+                  onClick={handleSignOut}
+                  className="hidden lg:flex p-2.5 rounded-lg text-navy-600 dark:text-gray-300 hover:bg-navy-50 dark:hover:bg-navy-800 transition-colors"
+                  aria-label="Log out"
+                  title={`Log out (${user?.email})`}
+                >
+                  <LogOut className="h-5 w-5" />
+                </button>
+              )}
 
               <div className="hidden lg:block">
                 <LinkButton to="academy" params={{ program: 'foundations' }} variant="accent" size="sm">
@@ -130,18 +130,14 @@ export function Navbar() {
                   {item.label}
                 </button>
               ))}
-              <button
-                onClick={() => {
-                  if (user) handleSignOut();
-                  else {
-                    setLoginOpen(true);
-                    setOpen(false);
-                  }
-                }}
-                className="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-navy-50 dark:hover:bg-navy-800 transition-colors"
-              >
-                {user ? `Log out (${user.email})` : 'Log in as Admin'}
-              </button>
+              {user && (
+                <button
+                  onClick={handleSignOut}
+                  className="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-navy-50 dark:hover:bg-navy-800 transition-colors"
+                >
+                  Log out ({user?.email})
+                </button>
+              )}
               <div className="pt-2">
                 <LinkButton to="academy" variant="accent" size="md" className="w-full">
                   Start Your Journey
@@ -152,9 +148,6 @@ export function Navbar() {
         )}
       </header>
 
-      <Modal open={loginOpen} onClose={() => setLoginOpen(false)} title="Log In as Admin">
-        <LoginForm onSuccess={() => setLoginOpen(false)} />
-      </Modal>
     </>
   );
 }

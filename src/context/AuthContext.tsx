@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import type { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
 
@@ -20,10 +20,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [role, setRole] = useState<Role | null>(null);
   const [loading, setLoading] = useState(true);
+  const roleRequestId = useRef(0);
 
-  const loadRole = async (userId: string) => {
-    const { data } = await supabase.from('profiles').select('role').eq('id', userId).single();
-    setRole((data?.role as Role) || 'guest');
+  const loadRole = async (userId: string): Promise<Role> => {
+    const requestId = ++roleRequestId.current;
+    const { data, error } = await supabase.from('profiles').select('role').eq('id', userId).single();
+    if (error) console.error('Failed to load user role:', error);
+    const loadedRole: Role = data?.role === 'admin' ? 'admin' : 'guest';
+    if (requestId === roleRequestId.current) setRole(loadedRole);
+    return loadedRole;
   };
 
   useEffect(() => {
@@ -43,8 +48,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setSession(newSession);
       setUser(newSession?.user ?? null);
       if (newSession?.user) {
-        loadRole(newSession.user.id);
+        void loadRole(newSession.user.id);
       } else {
+        roleRequestId.current += 1;
         setRole(null);
       }
     });
@@ -56,8 +62,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    return { error: error?.message || null };
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) return { error: error.message };
+    if (!data.user) return { error: 'Unable to verify administrator access.' };
+
+    const signedInRole = await loadRole(data.user.id);
+    if (signedInRole !== 'admin') {
+      await supabase.auth.signOut();
+      return { error: 'This account does not have administrator access.' };
+    }
+
+    return { error: null };
   };
 
   const signOut = async () => {

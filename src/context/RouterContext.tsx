@@ -9,6 +9,7 @@ export type RouteName =
   | 'contact'
   | 'team'
   | 'admin'
+  | 'admin-login'
   | 'events'
   | 'citation';
 
