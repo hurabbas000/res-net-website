@@ -290,6 +290,8 @@ export interface EventItem {
 export const events: EventItem[] = [
   {
     title: 'Research Foundation Workshop',
+    date: 'Coming Soon',
+    time: 'Coming Soon',
     format: 'Online',
     description:
       'Build your research foundation, gain practical insights, and take your first steps towards medical research and publication.',
