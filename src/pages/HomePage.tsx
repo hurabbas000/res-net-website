@@ -216,24 +216,24 @@ export function HomePage() {
             {programs.map((program, i) => (
               <React.Fragment key={program.slug}>
                 <div
-                  className="group py-8 px-4 hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors duration-200 cursor-pointer"
+                  className="group py-6 sm:py-8 px-0 sm:px-4 hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors duration-200 cursor-pointer"
                   onClick={() => navigate('academy', { program: program.slug })}
                 >
-                  <div className="flex items-start justify-between gap-6">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-heading font-semibold text-xl text-navy-700 dark:text-white">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-3 mb-2">
+                        <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy-700 dark:text-white">
                           {program.title}
                         </h3>
-                        <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        <span className="inline-flex text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                           {program.level}
                         </span>
                       </div>
-                      <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl">
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl">
                         {program.shortDesc}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform duration-200">
+                    <div className="flex items-center gap-2 self-start sm:self-auto text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform duration-200">
                       <span className="text-sm font-medium">Learn More</span>
                       <ArrowRight className="h-4 w-4" />
                     </div>
