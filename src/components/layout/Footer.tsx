@@ -8,6 +8,7 @@ const footerNav: { name: RouteName; label: string }[] = [
   { name: 'community', label: 'Community' },
   { name: 'events', label: 'Events' },
   { name: 'contact', label: 'Contact' },
+  { name: 'citation', label: 'Citation Tool' },
 ];
 
 export function Footer() {

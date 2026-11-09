@@ -17,6 +17,7 @@ const baseNavItems: { name: RouteName; label: string }[] = [
   { name: 'events', label: 'Events' },
   { name: 'team', label: 'Team' },
   { name: 'contact', label: 'Contact' },
+  { name: 'citation', label: 'Citation Tool' },
 ];
 
 export function Navbar() {

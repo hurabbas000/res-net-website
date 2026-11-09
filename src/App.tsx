@@ -11,6 +11,7 @@ import { ContactPage } from '@/pages/ContactPage';
 import { TeamPage } from '@/pages/TeamPage';
 import { AdminPage } from '@/pages/AdminPage';
 import { EventsPage } from '@/pages/EventsPage';
+import { CitationPage } from '@/pages/CitationPage';
 
 function PageRouter() {
   const { route } = useRouter();
@@ -32,6 +33,8 @@ function PageRouter() {
       return <AdminPage />;
     case 'events':
       return <EventsPage />;
+    case 'citation': 
+      return <CitationPage />;
     default:
       return <HomePage />;
   }

@@ -9,7 +9,8 @@ export type RouteName =
   | 'contact'
   | 'team'
   | 'admin'
-  | 'events';
+  | 'events'
+  | 'citation';
 
 interface RouterContextValue {
   route: RouteName;
