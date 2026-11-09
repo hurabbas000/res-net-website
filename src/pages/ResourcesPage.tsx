@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { Card } from '@/components/ui/Card';
-import { SectionHeading } from '@/components/ui/Accordion';
+import { LinkButton } from '@/components/ui/LinkButton';
 import { resources } from '@/data/content';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -153,12 +153,9 @@ export function ResourcesPage() {
               Enroll to unlock the full library.
             </p>
             <div className="mt-6">
-              <a
-                href="#/academy"
-                className="inline-flex items-center justify-center gap-2 rounded-xl font-heading font-semibold bg-accent-500 text-white hover:bg-accent-600 px-6 py-3 transition-all"
-              >
+              <LinkButton to="academy" variant="accent">
                 Explore Workshops Programs
-              </a>
+              </LinkButton>
             </div>
           </Card>
         </div>

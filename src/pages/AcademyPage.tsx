@@ -4,7 +4,6 @@ import {
   BrainCircuit,
   Rocket,
   Layers,
-  Clock,
   BarChart,
   CheckCircle2,
   ListChecks,
@@ -15,9 +14,8 @@ import {
 } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { Card } from '@/components/ui/Card';
-import { LinkButton } from '@/components/ui/LinkButton';
 import { Button } from '@/components/ui/Button';
-import { Accordion, SectionHeading } from '@/components/ui/Accordion';
+import { Accordion } from '@/components/ui/Accordion';
 import { RegisterInterestForm } from '@/components/forms/RegisterInterestForm';
 import { PreWorkshopForm } from '@/components/forms/PreWorkshopForm';
 import { PostWorkshopForm } from '@/components/forms/PostWorkshopForm';
@@ -74,12 +72,12 @@ function ProgramDetail({ program, onClose }: { program: Program; onClose: () => 
 
       <Card className="overflow-hidden">
         {/* Header */}
-        <div className={`${colors.icon} p-8 sm:p-10`}>
+        <div className={`${colors.icon} p-5 sm:p-8 lg:p-10`}>
           <div className="flex items-start gap-4">
             <div className="h-14 w-14 rounded-2xl bg-white/15 flex items-center justify-center shrink-0">
               <Icon className="h-7 w-7 text-white" />
             </div>
-            <div>
+            <div className="min-w-0">
               <h1 className="font-heading font-bold text-2xl sm:text-3xl text-white">
                 {program.title}
               </h1>
@@ -92,7 +90,7 @@ function ProgramDetail({ program, onClose }: { program: Program; onClose: () => 
           </div>
         </div>
 
-        <div className="p-8 sm:p-10">
+        <div className="min-w-0 p-5 sm:p-8 lg:p-10">
           {/* Description */}
           <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
             {program.description}
@@ -220,13 +218,13 @@ export function AcademyPage() {
       </section>
 
       {/* Programs */}
-      <section className="py-20 bg-white dark:bg-navy-900">
+      <section className="py-12 sm:py-20 bg-white dark:bg-navy-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {selectedProgram ? (
             <ProgramDetail program={selectedProgram} onClose={handleClose} />
           ) : (
             <>
-              <div className="text-center mb-12">
+              <div className="text-center mb-8 sm:mb-12">
                 <h2 className="font-heading font-bold text-3xl lg:text-4xl text-navy-700 dark:text-white">
                   Explore Our Programs
                 </h2>
@@ -239,12 +237,12 @@ export function AcademyPage() {
                 {programs.map((program, i) => (
                   <React.Fragment key={program.slug}>
                     <div 
-                      className="group py-8 px-4 hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors duration-200 cursor-pointer"
+                      className="group py-6 sm:py-8 px-0 sm:px-4 hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors duration-200 cursor-pointer"
                       onClick={() => navigate('academy', { program: program.slug })}
                     >
-                      <div className="flex items-start justify-between gap-6">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
                             <span className="text-xs font-medium text-brand-600 dark:text-brand-400 uppercase tracking-wider">
                               {program.level}
                             </span>
@@ -252,14 +250,14 @@ export function AcademyPage() {
                               Coming Soon
                             </span>
                           </div>
-                          <h3 className="font-heading font-semibold text-xl text-navy-700 dark:text-white">
+                          <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy-700 dark:text-white break-words">
                             {program.title}
                           </h3>
-                          <p className="mt-2 text-base text-gray-600 dark:text-gray-300 max-w-2xl">
+                          <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl">
                             {program.shortDesc}
                           </p>
                         </div>
-                        <div className="flex items-center gap-2 text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform duration-200">
+                        <div className="flex items-center gap-2 self-start sm:self-auto text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform duration-200">
                           <span className="text-sm font-medium">View Program</span>
                           <ArrowRight className="h-4 w-4" />
                         </div>
@@ -282,9 +280,9 @@ export function AcademyPage() {
 
       {/* FAQ */}
       {!selectedProgram && (
-        <section className="py-20 bg-white dark:bg-navy-900">
+        <section className="py-12 sm:py-20 bg-white dark:bg-navy-900">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-12">
               <span className="text-xs font-semibold text-brand-600 dark:text-brand-400 uppercase tracking-widest">
                 FAQ
               </span>

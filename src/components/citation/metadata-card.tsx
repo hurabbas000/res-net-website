@@ -143,8 +143,8 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
 
   if (isEditing) {
     return (
-      <div className="mt-6 rounded-2xl p-6 bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card">
-        <div className="flex items-center justify-between mb-6">
+      <div className="mt-6 min-w-0 rounded-2xl p-5 sm:p-6 bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
           <h3 className="font-heading text-lg font-semibold text-navy-700 dark:text-white">Edit Source Details</h3>
           <div className="flex gap-2">
             <button
@@ -177,7 +177,7 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
             <label className="block text-sm font-medium text-navy-700 dark:text-gray-200 mb-1">Authors</label>
             <div className="space-y-2">
               {editedMetadata.authors?.map((author, index) => (
-                <div key={index} className="flex gap-2 items-start">
+                <div key={index} className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-start">
                   <div className="flex-1">
                     <input
                       type="text"
@@ -223,7 +223,7 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-navy-700 dark:text-gray-200 mb-1">Publication Year</label>
               <input
@@ -244,7 +244,7 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-navy-700 dark:text-gray-200 mb-1">Issue</label>
               <input
@@ -342,10 +342,10 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
   };
 
   return (
-    <div className="mt-6 space-y-6">
+    <div className="mt-6 min-w-0 space-y-6">
       {/* Citation Style Selector */}
-      <div className="rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-6">
-        <div className="flex items-center justify-between mb-4">
+      <div className="min-w-0 rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-5 sm:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <h3 className="font-heading text-lg font-semibold text-navy-700 dark:text-white">Citation Style</h3>
           <button
             onClick={handleEdit}
@@ -429,7 +429,7 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
       </div>
 
       {/* Source Details */}
-      <div className="rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-6">
+      <div className="min-w-0 rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-5 sm:p-6">
         <div className="flex items-center gap-2 mb-1">
           <div className="w-2 h-2 rounded-full bg-brand-500"></div>
           <h3 className="font-heading text-lg font-semibold text-navy-700 dark:text-white">Source identified</h3>
@@ -458,7 +458,7 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {metadata.year && (
               <div>
                 <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">Publication Year</p>
@@ -481,18 +481,18 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {metadata.doi && (
               <div>
                 <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">DOI</p>
-                <p className="text-sm text-navy-700 dark:text-gray-100 font-mono">{metadata.doi}</p>
+                <p className="text-sm text-navy-700 dark:text-gray-100 font-mono break-words [overflow-wrap:anywhere]">{metadata.doi}</p>
               </div>
             )}
 
             {metadata.pmid && (
               <div>
                 <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">PMID</p>
-                <p className="text-sm text-navy-700 dark:text-gray-100 font-mono">{metadata.pmid}</p>
+                <p className="text-sm text-navy-700 dark:text-gray-100 font-mono break-words [overflow-wrap:anywhere]">{metadata.pmid}</p>
               </div>
             )}
           </div>
@@ -504,7 +504,7 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
                 href={metadata.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-brand-600 dark:text-brand-300 hover:text-brand-700 dark:hover:text-brand-200 hover:underline"
+                className="block max-w-full text-sm text-brand-600 dark:text-brand-300 hover:text-brand-700 dark:hover:text-brand-200 hover:underline break-words [overflow-wrap:anywhere]"
               >
                 {metadata.url}
               </a>
@@ -514,12 +514,12 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
       </div>
 
       {/* Formatted Citation */}
-      <div className="rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-6">
+      <div className="min-w-0 rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-5 sm:p-6">
         <h3 className="font-heading text-lg font-semibold text-navy-700 dark:text-white mb-4">Citation</h3>
         <div className="rounded-xl bg-navy-50 dark:bg-navy-900 p-4 mb-3">
-          <p className="text-sm text-navy-700 dark:text-gray-100 font-mono">{citation.reference}</p>
+          <p className="text-sm text-navy-700 dark:text-gray-100 font-mono break-words [overflow-wrap:anywhere]">{citation.reference}</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={handleCopyReference}
             className="rounded-lg px-4 py-2 text-sm font-medium text-brand-600 dark:text-brand-300 hover:text-brand-700 dark:hover:text-brand-200 border border-brand-300 dark:border-brand-700 hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-colors flex items-center gap-2"
@@ -539,10 +539,10 @@ export default function MetadataCard({ metadata, onUpdate, onAddToReferenceList 
       </div>
 
       {/* In-Text Citation */}
-      <div className="rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-6">
+      <div className="min-w-0 rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-5 sm:p-6">
         <h3 className="font-heading text-lg font-semibold text-navy-700 dark:text-white mb-4">In-text citation</h3>
         <div className="rounded-xl bg-navy-50 dark:bg-navy-900 p-4 mb-3">
-          <p className="text-sm text-navy-700 dark:text-gray-100 font-mono">{citation.inText}</p>
+          <p className="text-sm text-navy-700 dark:text-gray-100 font-mono break-words [overflow-wrap:anywhere]">{citation.inText}</p>
         </div>
         <button
           onClick={handleCopyInText}

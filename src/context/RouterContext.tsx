@@ -21,40 +21,69 @@ interface RouterContextValue {
 
 const RouterContext = createContext<RouterContextValue | undefined>(undefined);
 
-function parseHash(): { route: RouteName; params: Record<string, string> } {
-  const hash = window.location.hash.replace(/^#\/?/, '');
-  const [path, query] = hash.split('?');
-  const segments = path.split('/').filter(Boolean);
-  const route = (segments[0] as RouteName) || 'home';
+const routeNames = new Set<RouteName>([
+  'home',
+  'academy',
+  'community',
+  'resources',
+  'contact',
+  'team',
+  'admin',
+  'admin-login',
+  'events',
+  'citation',
+]);
+
+function parseLocation(): { route: RouteName; params: Record<string, string> } {
+  const legacyHash = window.location.hash.startsWith('#/')
+    ? window.location.hash.slice(2)
+    : '';
+  const routePath = legacyHash || window.location.pathname.replace(/^\/+|\/+$/g, '');
+  const pathSegments = routePath.split('?')[0].split('/').filter(Boolean);
+  const routeSegment = pathSegments[0] === 'index.html' ? '' : pathSegments[0];
+  const route = routeNames.has(routeSegment as RouteName)
+    ? (routeSegment as RouteName)
+    : 'home';
   const params: Record<string, string> = {};
-  if (query) {
-    new URLSearchParams(query).forEach((v, k) => {
-      params[k] = v;
-    });
-  }
+  const query = legacyHash
+    ? legacyHash.split('?')[1]
+    : window.location.search.slice(1);
+  if (query) new URLSearchParams(query).forEach((value, key) => {
+    params[key] = value;
+  });
   return { route, params };
 }
 
+function getRoutePath(to: RouteName, params?: Record<string, string>) {
+  const path = to === 'home' ? '/' : `/${to}`;
+  if (!params || !Object.keys(params).length) return path;
+  return `${path}?${new URLSearchParams(params).toString()}`;
+}
+
 export function RouterProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState(parseHash());
+  const [state, setState] = useState(parseLocation);
 
   useEffect(() => {
-    const onHashChange = () => {
-      setState(parseHash());
+    const onPopState = () => {
+      setState(parseLocation());
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-    window.addEventListener('hashchange', onHashChange);
-    if (!window.location.hash) window.location.hash = '#/';
-    return () => window.removeEventListener('hashchange', onHashChange);
+    if (window.location.hash.startsWith('#/')) {
+      const initialState = parseLocation();
+      window.history.replaceState(
+        null,
+        '',
+        getRoutePath(initialState.route, initialState.params),
+      );
+    }
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
   const navigate = useCallback((to: RouteName, params?: Record<string, string>) => {
-    let hash = `#/${to === 'home' ? '' : to}`;
-    if (params && Object.keys(params).length) {
-      const sp = new URLSearchParams(params);
-      hash += `?${sp.toString()}`;
-    }
-    window.location.hash = hash;
+    window.history.pushState(null, '', getRoutePath(to, params));
+    setState({ route: to, params: params ?? {} });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (

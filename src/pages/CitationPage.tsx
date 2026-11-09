@@ -159,7 +159,7 @@ export function CitationPage() {
           </div>
 
           {/* Input Card */}
-          <div className="rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-6 sm:p-8 mb-8">
+          <div className="min-w-0 rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-5 sm:p-8 mb-8">
             {!isManualEntry ? (
               <div className="space-y-5">
                 <div>
@@ -172,7 +172,7 @@ export function CitationPage() {
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="https://pubmed.ncbi.nlm.nih.gov/12345678/"
-                    className="w-full rounded-xl px-4 py-3 border border-navy-200 dark:border-navy-600 bg-white dark:bg-navy-900 text-navy-700 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none resize-none text-sm"
+                    className="block min-w-0 max-w-full w-full rounded-xl px-4 py-3 border border-navy-200 dark:border-navy-600 bg-white dark:bg-navy-900 text-navy-700 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none resize-none text-sm"
                     rows={3}
                   />
                 </div>
@@ -231,7 +231,7 @@ export function CitationPage() {
                           }
                         </p>
                         {validationResult.isValid && (
-                          <span className="block mt-1 text-xs text-gray-600 dark:text-gray-300 font-normal">
+                          <span className="block mt-1 text-xs text-gray-600 dark:text-gray-300 font-normal break-words [overflow-wrap:anywhere]">
                             Normalized: {validationResult.normalized}
                           </span>
                         )}
@@ -272,7 +272,7 @@ export function CitationPage() {
 
           {/* Reference List Section */}
           {referenceList.length > 0 && (
-            <div className="rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-6 sm:p-8 mb-8">
+            <div className="min-w-0 rounded-2xl bg-white dark:bg-navy-800 border border-navy-100 dark:border-navy-700 shadow-card p-5 sm:p-8 mb-8">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
                 <h3 className="font-heading text-lg font-semibold text-navy-700 dark:text-white">
                   Reference List ({referenceList.length})
@@ -326,9 +326,9 @@ export function CitationPage() {
                   return (
                     <div
                       key={ref.id}
-                      className="flex items-start gap-3 p-4 rounded-xl bg-navy-50 dark:bg-navy-900 border border-navy-100 dark:border-navy-700"
+                      className="flex flex-col sm:flex-row sm:items-start gap-3 p-4 rounded-xl bg-navy-50 dark:bg-navy-900 border border-navy-100 dark:border-navy-700"
                     >
-                      <div className="flex flex-col gap-1 items-center">
+                      <div className="flex flex-row sm:flex-col gap-2 sm:gap-1 items-center">
                         {index > 0 && (
                           <button
                             onClick={() => handleMoveReference(index, index - 1)}
@@ -351,12 +351,12 @@ export function CitationPage() {
                           </button>
                         )}
                       </div>
-                      <div className="flex-1">
-                        <p className="text-sm text-navy-700 dark:text-gray-100 font-mono">
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm text-navy-700 dark:text-gray-100 font-mono break-words [overflow-wrap:anywhere]">
                           {isNumberedStyle ? citation.reference : citation.reference}
                         </p>
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-3">
                         <button
                           onClick={() => handleEditReference(ref.id)}
                           className="text-sm text-brand-600 dark:text-brand-300 hover:text-brand-700 dark:hover:text-brand-200"
