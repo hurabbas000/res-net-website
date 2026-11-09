@@ -12,10 +12,10 @@ const baseNavItems: { name: RouteName; label: string }[] = [
   { name: 'home', label: 'Home' },
   { name: 'academy', label: 'Workshops' },
   { name: 'community', label: 'Community' },
+  { name: 'citation', label: 'Citation Tool' },
   { name: 'events', label: 'Events' },
   { name: 'team', label: 'Team' },
   { name: 'contact', label: 'Contact' },
-  { name: 'citation', label: 'Citation Tool' },
 ];
 
 export function Navbar() {

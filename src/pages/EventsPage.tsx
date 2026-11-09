@@ -42,12 +42,16 @@ function EventCard({ event }: { event: EventItem }) {
             {event.description}
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-            <span className="flex items-center gap-1.5">
-              <Calendar className="h-4 w-4" /> {event.date}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4" /> {event.time}
-            </span>
+            {event.date && (
+              <span className="flex items-center gap-1.5">
+                <Calendar className="h-4 w-4" /> {event.date}
+              </span>
+            )}
+            {event.time && (
+              <span className="flex items-center gap-1.5">
+                <Clock className="h-4 w-4" /> {event.time}
+              </span>
+            )}
             {event.location && (
               <span className="flex items-center gap-1.5">
                 <MapPin className="h-4 w-4" /> {event.location}

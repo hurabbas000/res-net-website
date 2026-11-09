@@ -277,8 +277,8 @@ export const roadmapSteps: RoadmapStep[] = [
 
 export interface EventItem {
   title: string;
-  date: string;
-  time: string;
+  date?: string;
+  time?: string;
   format: 'Online' | 'In-Person';
   location?: string;
   description: string;
@@ -290,8 +290,6 @@ export interface EventItem {
 export const events: EventItem[] = [
   {
     title: 'Research Foundation Workshop',
-    date: 'October 4, 2026',
-    time: '8:00–10:00 PM PKT',
     format: 'Online',
     description:
       'Build your research foundation, gain practical insights, and take your first steps towards medical research and publication.',
